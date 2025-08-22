@@ -1,0 +1,111 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore the Amped Projects web design and development portfolio. View our catalog of completed websites and digital projects.">
+    <title>Our Work Catalog | Amped Projects</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="images/ampedlogo.jpg">
+</head>
+<body>
+    <a href="#main-content" class="skip-link" style="position:absolute;left:-999px;top:auto;width:1px;height:1px;overflow:hidden;">Skip to main content</a>
+    <header>
+        <nav class="navbar" aria-label="Main navigation" style="position:relative;">
+            <div class="logo">
+                <img src="images/ampedlogo.jpg" alt="Amped Projects Logo">
+                <span class="logo-text">Amped Projects</span>
+            </div>
+            <button class="menu-toggle" aria-label="Open menu" style="display:none;background:none;border:none;cursor:pointer;padding:0 1rem;position:absolute;right:0;top:10px;z-index:1100;">
+                <span style="font-size:2rem;line-height:1;">&#9776;</span>
+            </button>
+            <ul class="nav-links">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="catalog.html">Our Work</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main id="main-content">
+    <footer>
+        <div class="footer-content">
+            <img src="images/ampedlogo.jpg" alt="Amped Projects Logo">
+            <p>&copy; 2025 Amped Projects. Website development services. All rights reserved.</p>
+            <ul class="footer-links">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="catalog.html">Catalog</a></li>
+                <li><a href="index.html#process">Process</a></li>
+                <li><a href="index.html#testimonials">Testimonials</a></li>
+                <li><a href="index.html#faq">FAQ</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </div>
+    </footer>
+<script>
+// Mobile menu toggle for catalog page
+function handleMenu() {
+    const menuBtn = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    function toggleMenu() {
+        navLinks.classList.toggle('open');
+    }
+    menuBtn.addEventListener('click', toggleMenu);
+    function checkWidth() {
+        if(window.innerWidth <= 700) {
+            menuBtn.style.display = 'block';
+            navLinks.style.display = navLinks.classList.contains('open') ? 'flex' : 'none';
+            navLinks.style.flexDirection = 'column';
+            navLinks.style.position = 'absolute';
+            navLinks.style.top = '60px';
+            navLinks.style.right = '10px';
+            navLinks.style.background = '#222';
+            navLinks.style.boxShadow = '0 2px 12px rgba(0,0,0,0.15)';
+            navLinks.style.borderRadius = '12px';
+            navLinks.style.zIndex = '1000';
+            navLinks.style.width = '180px';
+            navLinks.style.padding = '1rem 0';
+            navLinks.querySelectorAll('a').forEach(a => {
+                a.style.color = '#fff';
+                a.style.padding = '0.7rem 1rem';
+                a.style.textAlign = 'left';
+            });
+        } else {
+            menuBtn.style.display = 'none';
+            navLinks.style.display = 'flex';
+            navLinks.style.flexDirection = 'row';
+            navLinks.style.position = '';
+            navLinks.style.top = '';
+            navLinks.style.right = '';
+            navLinks.style.background = '';
+            navLinks.style.boxShadow = '';
+            navLinks.style.borderRadius = '';
+            navLinks.style.zIndex = '';
+            navLinks.style.width = '';
+            navLinks.style.padding = '';
+            navLinks.querySelectorAll('a').forEach(a => {
+                a.style.color = '';
+                a.style.padding = '';
+                a.style.textAlign = '';
+            });
+        }
+    }
+    window.addEventListener('resize', checkWidth);
+    checkWidth();
+    navLinks.querySelectorAll('a').forEach(a => {
+        a.addEventListener('click', () => {
+            if(window.innerWidth <= 700) {
+                navLinks.classList.remove('open');
+                navLinks.style.display = 'none';
+            }
+        });
+    });
+}
+document.addEventListener('DOMContentLoaded', handleMenu);
+</script>
+</body>
+</html>
